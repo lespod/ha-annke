@@ -1,0 +1,635 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Dodaj kamerę Annke",
+        "description": "Podaj adres kamery i konto w kamerze. Zalecany jest osobny użytkownik z rolą Operator.",
+        "data": {
+          "host": "Adres",
+          "username": "Login",
+          "password": "Hasło",
+          "port": "Port HTTP",
+          "ssl": "Użyj HTTPS"
+        },
+        "data_description": {
+          "host": "Adres IP lub nazwa hosta kamery."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Zaloguj się ponownie",
+        "description": "Kamera pod adresem {host} odrzuciła zapisane hasło.",
+        "data": {
+          "username": "Login",
+          "password": "Hasło"
+        }
+      },
+      "reconfigure": {
+        "title": "Zmień adres kamery",
+        "data": {
+          "host": "Adres",
+          "username": "Login",
+          "password": "Hasło",
+          "port": "Port HTTP",
+          "ssl": "Użyj HTTPS"
+        },
+        "data_description": {
+          "password": "Zostaw puste, aby zachować zapisane hasło."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Nie można połączyć się z kamerą.",
+      "invalid_auth": "Nieprawidłowy login lub hasło."
+    },
+    "abort": {
+      "already_configured": "Ta kamera jest już dodana.",
+      "reauth_successful": "Zalogowano ponownie.",
+      "reconfigure_successful": "Zaktualizowano kamerę.",
+      "unique_id_mismatch": "To inna kamera (numer seryjny się nie zgadza)."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Ustawienia zdarzeń",
+        "data": {
+          "off_delay": "Czas wygaszania zdarzenia (s)"
+        },
+        "data_description": {
+          "off_delay": "Jak długo wykrycie pozostaje aktywne po ostatnim alercie z kamery."
+        }
+      }
+    }
+  },
+  "entity": {
+    "switch": {
+      "white_light": {
+        "name": "Biała dioda"
+      },
+      "white_light_channel": {
+        "name": "Biała dioda (obiektyw {channel})"
+      },
+      "motion_detection": {
+        "name": "Wykrywanie ruchu"
+      },
+      "motion_detection_channel": {
+        "name": "Wykrywanie ruchu (obiektyw {channel})"
+      },
+      "tamper_detection": {
+        "name": "Wykrywanie sabotażu"
+      },
+      "tamper_detection_channel": {
+        "name": "Wykrywanie sabotażu (obiektyw {channel})"
+      },
+      "intrusion_detection": {
+        "name": "Wykrywanie wtargnięcia"
+      },
+      "intrusion_detection_channel": {
+        "name": "Wykrywanie wtargnięcia (obiektyw {channel})"
+      },
+      "line_crossing_detection": {
+        "name": "Wykrywanie przekroczenia linii"
+      },
+      "line_crossing_detection_channel": {
+        "name": "Wykrywanie przekroczenia linii (obiektyw {channel})"
+      },
+      "region_entrance_detection": {
+        "name": "Wykrywanie wejścia do strefy"
+      },
+      "region_entrance_detection_channel": {
+        "name": "Wykrywanie wejścia do strefy (obiektyw {channel})"
+      },
+      "region_exiting_detection": {
+        "name": "Wykrywanie wyjścia ze strefy"
+      },
+      "region_exiting_detection_channel": {
+        "name": "Wykrywanie wyjścia ze strefy (obiektyw {channel})"
+      },
+      "scene_change_detection": {
+        "name": "Wykrywanie zmiany sceny"
+      },
+      "scene_change_detection_channel": {
+        "name": "Wykrywanie zmiany sceny (obiektyw {channel})"
+      },
+      "defocus_detection": {
+        "name": "Wykrywanie utraty ostrości"
+      },
+      "defocus_detection_channel": {
+        "name": "Wykrywanie utraty ostrości (obiektyw {channel})"
+      },
+      "audio_exception_detection": {
+        "name": "Wykrywanie anomalii dźwięku"
+      },
+      "audio_exception_detection_channel": {
+        "name": "Wykrywanie anomalii dźwięku (obiektyw {channel})"
+      },
+      "privacy_mask": {
+        "name": "Maska prywatności"
+      },
+      "privacy_mask_channel": {
+        "name": "Maska prywatności (obiektyw {channel})"
+      },
+      "image_flip": {
+        "name": "Odwrócenie obrazu"
+      },
+      "image_flip_channel": {
+        "name": "Odwrócenie obrazu (obiektyw {channel})"
+      },
+      "alarm_output": {
+        "name": "Wyjście alarmowe {port}"
+      }
+    },
+    "select": {
+      "supplement_light_mode": {
+        "name": "Tryb doświetlenia",
+        "state": {
+          "color_vu_white_light": "Biała dioda",
+          "ir_light": "Podczerwień",
+          "event_intelligence": "Inteligentne (przy zdarzeniu)",
+          "close": "Wyłączone",
+          "auto": "Automatycznie",
+          "manual": "Ręcznie",
+          "day": "Dzień",
+          "night": "Noc",
+          "schedule": "Harmonogram",
+          "event_trigger": "Wyzwalanie zdarzeniem",
+          "open": "Włączone",
+          "high": "Wysoka",
+          "medium": "Średnia",
+          "low": "Niska",
+          "normally_on": "Ciągłe światło"
+        }
+      },
+      "supplement_light_mode_channel": {
+        "name": "Tryb doświetlenia (obiektyw {channel})",
+        "state": {
+          "color_vu_white_light": "Biała dioda",
+          "ir_light": "Podczerwień",
+          "event_intelligence": "Inteligentne (przy zdarzeniu)",
+          "close": "Wyłączone",
+          "auto": "Automatycznie",
+          "manual": "Ręcznie",
+          "day": "Dzień",
+          "night": "Noc",
+          "schedule": "Harmonogram",
+          "event_trigger": "Wyzwalanie zdarzeniem",
+          "open": "Włączone",
+          "high": "Wysoka",
+          "medium": "Średnia",
+          "low": "Niska",
+          "normally_on": "Ciągłe światło"
+        }
+      },
+      "light_brightness_mode": {
+        "name": "Sterowanie jasnością doświetlenia",
+        "state": {
+          "color_vu_white_light": "Biała dioda",
+          "ir_light": "Podczerwień",
+          "event_intelligence": "Inteligentne (przy zdarzeniu)",
+          "close": "Wyłączone",
+          "auto": "Automatycznie",
+          "manual": "Ręcznie",
+          "day": "Dzień",
+          "night": "Noc",
+          "schedule": "Harmonogram",
+          "event_trigger": "Wyzwalanie zdarzeniem",
+          "open": "Włączone",
+          "high": "Wysoka",
+          "medium": "Średnia",
+          "low": "Niska",
+          "normally_on": "Ciągłe światło"
+        }
+      },
+      "light_brightness_mode_channel": {
+        "name": "Sterowanie jasnością doświetlenia (obiektyw {channel})",
+        "state": {
+          "color_vu_white_light": "Biała dioda",
+          "ir_light": "Podczerwień",
+          "event_intelligence": "Inteligentne (przy zdarzeniu)",
+          "close": "Wyłączone",
+          "auto": "Automatycznie",
+          "manual": "Ręcznie",
+          "day": "Dzień",
+          "night": "Noc",
+          "schedule": "Harmonogram",
+          "event_trigger": "Wyzwalanie zdarzeniem",
+          "open": "Włączone",
+          "high": "Wysoka",
+          "medium": "Średnia",
+          "low": "Niska",
+          "normally_on": "Ciągłe światło"
+        }
+      },
+      "day_night_mode": {
+        "name": "Tryb dzień/noc",
+        "state": {
+          "color_vu_white_light": "Biała dioda",
+          "ir_light": "Podczerwień",
+          "event_intelligence": "Inteligentne (przy zdarzeniu)",
+          "close": "Wyłączone",
+          "auto": "Automatycznie",
+          "manual": "Ręcznie",
+          "day": "Dzień",
+          "night": "Noc",
+          "schedule": "Harmonogram",
+          "event_trigger": "Wyzwalanie zdarzeniem",
+          "open": "Włączone",
+          "high": "Wysoka",
+          "medium": "Średnia",
+          "low": "Niska",
+          "normally_on": "Ciągłe światło"
+        }
+      },
+      "day_night_mode_channel": {
+        "name": "Tryb dzień/noc (obiektyw {channel})",
+        "state": {
+          "color_vu_white_light": "Biała dioda",
+          "ir_light": "Podczerwień",
+          "event_intelligence": "Inteligentne (przy zdarzeniu)",
+          "close": "Wyłączone",
+          "auto": "Automatycznie",
+          "manual": "Ręcznie",
+          "day": "Dzień",
+          "night": "Noc",
+          "schedule": "Harmonogram",
+          "event_trigger": "Wyzwalanie zdarzeniem",
+          "open": "Włączone",
+          "high": "Wysoka",
+          "medium": "Średnia",
+          "low": "Niska",
+          "normally_on": "Ciągłe światło"
+        }
+      },
+      "wdr_mode": {
+        "name": "WDR",
+        "state": {
+          "color_vu_white_light": "Biała dioda",
+          "ir_light": "Podczerwień",
+          "event_intelligence": "Inteligentne (przy zdarzeniu)",
+          "close": "Wyłączone",
+          "auto": "Automatycznie",
+          "manual": "Ręcznie",
+          "day": "Dzień",
+          "night": "Noc",
+          "schedule": "Harmonogram",
+          "event_trigger": "Wyzwalanie zdarzeniem",
+          "open": "Włączone",
+          "high": "Wysoka",
+          "medium": "Średnia",
+          "low": "Niska",
+          "normally_on": "Ciągłe światło"
+        }
+      },
+      "wdr_mode_channel": {
+        "name": "WDR (obiektyw {channel})",
+        "state": {
+          "color_vu_white_light": "Biała dioda",
+          "ir_light": "Podczerwień",
+          "event_intelligence": "Inteligentne (przy zdarzeniu)",
+          "close": "Wyłączone",
+          "auto": "Automatycznie",
+          "manual": "Ręcznie",
+          "day": "Dzień",
+          "night": "Noc",
+          "schedule": "Harmonogram",
+          "event_trigger": "Wyzwalanie zdarzeniem",
+          "open": "Włączone",
+          "high": "Wysoka",
+          "medium": "Średnia",
+          "low": "Niska",
+          "normally_on": "Ciągłe światło"
+        }
+      },
+      "strobe_frequency": {
+        "name": "Częstotliwość stroboskopu",
+        "state": {
+          "color_vu_white_light": "Biała dioda",
+          "ir_light": "Podczerwień",
+          "event_intelligence": "Inteligentne (przy zdarzeniu)",
+          "close": "Wyłączone",
+          "auto": "Automatycznie",
+          "manual": "Ręcznie",
+          "day": "Dzień",
+          "night": "Noc",
+          "schedule": "Harmonogram",
+          "event_trigger": "Wyzwalanie zdarzeniem",
+          "open": "Włączone",
+          "high": "Wysoka",
+          "medium": "Średnia",
+          "low": "Niska",
+          "normally_on": "Ciągłe światło"
+        }
+      },
+      "strobe_frequency_channel": {
+        "name": "Częstotliwość stroboskopu (obiektyw {channel})",
+        "state": {
+          "color_vu_white_light": "Biała dioda",
+          "ir_light": "Podczerwień",
+          "event_intelligence": "Inteligentne (przy zdarzeniu)",
+          "close": "Wyłączone",
+          "auto": "Automatycznie",
+          "manual": "Ręcznie",
+          "day": "Dzień",
+          "night": "Noc",
+          "schedule": "Harmonogram",
+          "event_trigger": "Wyzwalanie zdarzeniem",
+          "open": "Włączone",
+          "high": "Wysoka",
+          "medium": "Średnia",
+          "low": "Niska",
+          "normally_on": "Ciągłe światło"
+        }
+      },
+      "siren_sound": {
+        "name": "Dźwięk syreny"
+      },
+      "siren_sound_channel": {
+        "name": "Dźwięk syreny (obiektyw {channel})"
+      }
+    },
+    "number": {
+      "white_light_brightness": {
+        "name": "Jasność białej diody"
+      },
+      "white_light_brightness_channel": {
+        "name": "Jasność białej diody (obiektyw {channel})"
+      },
+      "ir_light_brightness": {
+        "name": "Jasność podczerwieni"
+      },
+      "ir_light_brightness_channel": {
+        "name": "Jasność podczerwieni (obiektyw {channel})"
+      },
+      "white_light_brightness_limit": {
+        "name": "Limit jasności białej diody"
+      },
+      "white_light_brightness_limit_channel": {
+        "name": "Limit jasności białej diody (obiektyw {channel})"
+      },
+      "day_night_sensitivity": {
+        "name": "Czułość dzień/noc"
+      },
+      "day_night_sensitivity_channel": {
+        "name": "Czułość dzień/noc (obiektyw {channel})"
+      },
+      "day_night_delay": {
+        "name": "Opóźnienie przełączania dzień/noc"
+      },
+      "day_night_delay_channel": {
+        "name": "Opóźnienie przełączania dzień/noc (obiektyw {channel})"
+      },
+      "strobe_duration": {
+        "name": "Czas stroboskopu"
+      },
+      "strobe_duration_channel": {
+        "name": "Czas stroboskopu (obiektyw {channel})"
+      },
+      "siren_volume": {
+        "name": "Głośność syreny"
+      },
+      "siren_volume_channel": {
+        "name": "Głośność syreny (obiektyw {channel})"
+      },
+      "siren_repeats": {
+        "name": "Powtórzenia syreny"
+      },
+      "siren_repeats_channel": {
+        "name": "Powtórzenia syreny (obiektyw {channel})"
+      }
+    },
+    "binary_sensor": {
+      "motion": {
+        "name": "Ruch"
+      },
+      "motion_channel": {
+        "name": "Ruch (obiektyw {channel})"
+      },
+      "human": {
+        "name": "Osoba"
+      },
+      "human_channel": {
+        "name": "Osoba (obiektyw {channel})"
+      },
+      "vehicle": {
+        "name": "Pojazd"
+      },
+      "vehicle_channel": {
+        "name": "Pojazd (obiektyw {channel})"
+      },
+      "intrusion": {
+        "name": "Wtargnięcie"
+      },
+      "intrusion_channel": {
+        "name": "Wtargnięcie (obiektyw {channel})"
+      },
+      "line_crossing": {
+        "name": "Przekroczenie linii"
+      },
+      "line_crossing_channel": {
+        "name": "Przekroczenie linii (obiektyw {channel})"
+      },
+      "region_entrance": {
+        "name": "Wejście do strefy"
+      },
+      "region_entrance_channel": {
+        "name": "Wejście do strefy (obiektyw {channel})"
+      },
+      "region_exiting": {
+        "name": "Wyjście ze strefy"
+      },
+      "region_exiting_channel": {
+        "name": "Wyjście ze strefy (obiektyw {channel})"
+      },
+      "tamper": {
+        "name": "Sabotaż"
+      },
+      "tamper_channel": {
+        "name": "Sabotaż (obiektyw {channel})"
+      },
+      "scene_change": {
+        "name": "Zmiana sceny"
+      },
+      "scene_change_channel": {
+        "name": "Zmiana sceny (obiektyw {channel})"
+      },
+      "defocus": {
+        "name": "Utrata ostrości"
+      },
+      "defocus_channel": {
+        "name": "Utrata ostrości (obiektyw {channel})"
+      },
+      "audio_exception": {
+        "name": "Anomalia dźwięku"
+      },
+      "audio_exception_channel": {
+        "name": "Anomalia dźwięku (obiektyw {channel})"
+      },
+      "pir": {
+        "name": "PIR"
+      },
+      "pir_channel": {
+        "name": "PIR (obiektyw {channel})"
+      },
+      "event_stream": {
+        "name": "Połączenie zdarzeń"
+      },
+      "event_stream_channel": {
+        "name": "Połączenie zdarzeń (obiektyw {channel})"
+      },
+      "alarm_input": {
+        "name": "Wejście alarmowe {port}"
+      }
+    },
+    "sensor": {
+      "cpu": {
+        "name": "Użycie CPU"
+      },
+      "cpu_channel": {
+        "name": "Użycie CPU (obiektyw {channel})"
+      },
+      "memory": {
+        "name": "Użycie pamięci"
+      },
+      "memory_channel": {
+        "name": "Użycie pamięci (obiektyw {channel})"
+      },
+      "boot_time": {
+        "name": "Ostatnie uruchomienie"
+      },
+      "boot_time_channel": {
+        "name": "Ostatnie uruchomienie (obiektyw {channel})"
+      },
+      "storage_status": {
+        "name": "Stan karty SD"
+      },
+      "storage_status_channel": {
+        "name": "Stan karty SD (obiektyw {channel})"
+      },
+      "storage_free": {
+        "name": "Wolne miejsce na karcie SD"
+      },
+      "storage_free_channel": {
+        "name": "Wolne miejsce na karcie SD (obiektyw {channel})"
+      },
+      "storage_capacity": {
+        "name": "Pojemność karty SD"
+      },
+      "storage_capacity_channel": {
+        "name": "Pojemność karty SD (obiektyw {channel})"
+      }
+    },
+    "button": {
+      "reboot": {
+        "name": "Uruchom ponownie"
+      },
+      "reboot_channel": {
+        "name": "Uruchom ponownie (obiektyw {channel})"
+      },
+      "enable_event_linkage": {
+        "name": "Włącz powiadomienia o zdarzeniach"
+      },
+      "enable_event_linkage_channel": {
+        "name": "Włącz powiadomienia o zdarzeniach (obiektyw {channel})"
+      },
+      "siren_test": {
+        "name": "Odtwórz syrenę"
+      },
+      "siren_test_channel": {
+        "name": "Odtwórz syrenę (obiektyw {channel})"
+      },
+      "wiper": {
+        "name": "Wycieraczka"
+      },
+      "wiper_channel": {
+        "name": "Wycieraczka (obiektyw {channel})"
+      },
+      "focus": {
+        "name": "Autofokus"
+      },
+      "focus_channel": {
+        "name": "Autofokus (obiektyw {channel})"
+      }
+    },
+    "camera": {
+      "main_stream": {
+        "name": "Strumień główny"
+      },
+      "main_stream_channel": {
+        "name": "Strumień główny (obiektyw {channel})"
+      },
+      "sub_stream": {
+        "name": "Strumień pomocniczy"
+      },
+      "sub_stream_channel": {
+        "name": "Strumień pomocniczy (obiektyw {channel})"
+      }
+    }
+  },
+  "issues": {
+    "missing_linkage": {
+      "title": "{name}: część zdarzeń nie trafia do Home Assistant",
+      "description": "Te zdarzenia w kamerze nie mają włączonej opcji „Powiadom centrum monitoringu”, więc ich czujniki nigdy się nie włączą: {events}.\n\nNaciśnij przycisk „Włącz powiadomienia o zdarzeniach” na stronie urządzenia albo włącz tę opcję w panelu kamery w Zdarzenie → Akcja powiązania."
+    }
+  },
+  "exceptions": {
+    "unknown_device": {
+      "message": "To urządzenie nie jest kamerą Annke."
+    },
+    "no_ptz": {
+      "message": "{name} nie obsługuje PTZ na tym kanale."
+    },
+    "forbidden": {
+      "message": "{name}: konto w kamerze nie może zmieniać ustawień (HTTP 403). W kamerze nadaj temu użytkownikowi uprawnienie „Zdalne: ustawienia parametrów” albo użyj konta administratora."
+    }
+  },
+  "services": {
+    "ptz_move": {
+      "name": "Ruch PTZ",
+      "description": "Obróć, pochyl lub przybliż kamerę przez krótki czas.",
+      "fields": {
+        "device_id": {
+          "name": "Kamera",
+          "description": "Kamera"
+        },
+        "channel": {
+          "name": "Kanał",
+          "description": "Kanał"
+        },
+        "pan": {
+          "name": "Prędkość obrotu",
+          "description": "Od -100 do 100; wartości ujemne to ruch w przeciwną stronę."
+        },
+        "tilt": {
+          "name": "Prędkość pochylenia",
+          "description": "Od -100 do 100; wartości ujemne to ruch w przeciwną stronę."
+        },
+        "zoom": {
+          "name": "Prędkość zoomu",
+          "description": "Od -100 do 100; wartości ujemne to ruch w przeciwną stronę."
+        },
+        "duration": {
+          "name": "Czas (s)",
+          "description": "Czas (s)"
+        }
+      }
+    },
+    "goto_preset": {
+      "name": "Przejdź do presetu",
+      "description": "Ustaw kamerę w zapisanej pozycji.",
+      "fields": {
+        "device_id": {
+          "name": "Kamera",
+          "description": "Kamera"
+        },
+        "channel": {
+          "name": "Kanał",
+          "description": "Kanał"
+        },
+        "preset": {
+          "name": "Numer presetu",
+          "description": "Numer presetu"
+        }
+      }
+    }
+  }
+}

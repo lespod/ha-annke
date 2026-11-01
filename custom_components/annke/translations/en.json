@@ -1,0 +1,635 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add Annke camera",
+        "description": "Enter the camera address and an account on the camera. A separate user with the Operator role is recommended.",
+        "data": {
+          "host": "Host",
+          "username": "Username",
+          "password": "Password",
+          "port": "HTTP port",
+          "ssl": "Use HTTPS"
+        },
+        "data_description": {
+          "host": "IP address or hostname of the camera."
+        }
+      },
+      "reauth_confirm": {
+        "title": "Sign in again",
+        "description": "The camera at {host} rejected the saved password.",
+        "data": {
+          "username": "Username",
+          "password": "Password"
+        }
+      },
+      "reconfigure": {
+        "title": "Change camera address",
+        "data": {
+          "host": "Host",
+          "username": "Username",
+          "password": "Password",
+          "port": "HTTP port",
+          "ssl": "Use HTTPS"
+        },
+        "data_description": {
+          "password": "Leave empty to keep the saved password."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot connect to the camera.",
+      "invalid_auth": "Wrong username or password."
+    },
+    "abort": {
+      "already_configured": "This camera is already configured.",
+      "reauth_successful": "Signed in again.",
+      "reconfigure_successful": "Camera updated.",
+      "unique_id_mismatch": "This is a different camera (serial number does not match)."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Event settings",
+        "data": {
+          "off_delay": "Event off delay (s)"
+        },
+        "data_description": {
+          "off_delay": "How long a detection stays on after the camera's last alert."
+        }
+      }
+    }
+  },
+  "entity": {
+    "switch": {
+      "white_light": {
+        "name": "White light"
+      },
+      "white_light_channel": {
+        "name": "White light (lens {channel})"
+      },
+      "motion_detection": {
+        "name": "Motion detection"
+      },
+      "motion_detection_channel": {
+        "name": "Motion detection (lens {channel})"
+      },
+      "tamper_detection": {
+        "name": "Tamper detection"
+      },
+      "tamper_detection_channel": {
+        "name": "Tamper detection (lens {channel})"
+      },
+      "intrusion_detection": {
+        "name": "Intrusion detection"
+      },
+      "intrusion_detection_channel": {
+        "name": "Intrusion detection (lens {channel})"
+      },
+      "line_crossing_detection": {
+        "name": "Line crossing detection"
+      },
+      "line_crossing_detection_channel": {
+        "name": "Line crossing detection (lens {channel})"
+      },
+      "region_entrance_detection": {
+        "name": "Region entrance detection"
+      },
+      "region_entrance_detection_channel": {
+        "name": "Region entrance detection (lens {channel})"
+      },
+      "region_exiting_detection": {
+        "name": "Region exiting detection"
+      },
+      "region_exiting_detection_channel": {
+        "name": "Region exiting detection (lens {channel})"
+      },
+      "scene_change_detection": {
+        "name": "Scene change detection"
+      },
+      "scene_change_detection_channel": {
+        "name": "Scene change detection (lens {channel})"
+      },
+      "defocus_detection": {
+        "name": "Defocus detection"
+      },
+      "defocus_detection_channel": {
+        "name": "Defocus detection (lens {channel})"
+      },
+      "audio_exception_detection": {
+        "name": "Audio exception detection"
+      },
+      "audio_exception_detection_channel": {
+        "name": "Audio exception detection (lens {channel})"
+      },
+      "privacy_mask": {
+        "name": "Privacy mask"
+      },
+      "privacy_mask_channel": {
+        "name": "Privacy mask (lens {channel})"
+      },
+      "image_flip": {
+        "name": "Image flip"
+      },
+      "image_flip_channel": {
+        "name": "Image flip (lens {channel})"
+      },
+      "alarm_output": {
+        "name": "Alarm output {port}"
+      }
+    },
+    "select": {
+      "supplement_light_mode": {
+        "name": "Supplement light mode",
+        "state": {
+          "color_vu_white_light": "White light",
+          "ir_light": "Infrared",
+          "event_intelligence": "Smart (on event)",
+          "close": "Off",
+          "auto": "Auto",
+          "manual": "Manual",
+          "day": "Day",
+          "night": "Night",
+          "schedule": "Schedule",
+          "event_trigger": "Event trigger",
+          "open": "On",
+          "high": "High",
+          "medium": "Medium",
+          "low": "Low",
+          "normally_on": "Always on"
+        }
+      },
+      "supplement_light_mode_channel": {
+        "name": "Supplement light mode (lens {channel})",
+        "state": {
+          "color_vu_white_light": "White light",
+          "ir_light": "Infrared",
+          "event_intelligence": "Smart (on event)",
+          "close": "Off",
+          "auto": "Auto",
+          "manual": "Manual",
+          "day": "Day",
+          "night": "Night",
+          "schedule": "Schedule",
+          "event_trigger": "Event trigger",
+          "open": "On",
+          "high": "High",
+          "medium": "Medium",
+          "low": "Low",
+          "normally_on": "Always on"
+        }
+      },
+      "light_brightness_mode": {
+        "name": "Light brightness control",
+        "state": {
+          "color_vu_white_light": "White light",
+          "ir_light": "Infrared",
+          "event_intelligence": "Smart (on event)",
+          "close": "Off",
+          "auto": "Auto",
+          "manual": "Manual",
+          "day": "Day",
+          "night": "Night",
+          "schedule": "Schedule",
+          "event_trigger": "Event trigger",
+          "open": "On",
+          "high": "High",
+          "medium": "Medium",
+          "low": "Low",
+          "normally_on": "Always on"
+        }
+      },
+      "light_brightness_mode_channel": {
+        "name": "Light brightness control (lens {channel})",
+        "state": {
+          "color_vu_white_light": "White light",
+          "ir_light": "Infrared",
+          "event_intelligence": "Smart (on event)",
+          "close": "Off",
+          "auto": "Auto",
+          "manual": "Manual",
+          "day": "Day",
+          "night": "Night",
+          "schedule": "Schedule",
+          "event_trigger": "Event trigger",
+          "open": "On",
+          "high": "High",
+          "medium": "Medium",
+          "low": "Low",
+          "normally_on": "Always on"
+        }
+      },
+      "day_night_mode": {
+        "name": "Day/night mode",
+        "state": {
+          "color_vu_white_light": "White light",
+          "ir_light": "Infrared",
+          "event_intelligence": "Smart (on event)",
+          "close": "Off",
+          "auto": "Auto",
+          "manual": "Manual",
+          "day": "Day",
+          "night": "Night",
+          "schedule": "Schedule",
+          "event_trigger": "Event trigger",
+          "open": "On",
+          "high": "High",
+          "medium": "Medium",
+          "low": "Low",
+          "normally_on": "Always on"
+        }
+      },
+      "day_night_mode_channel": {
+        "name": "Day/night mode (lens {channel})",
+        "state": {
+          "color_vu_white_light": "White light",
+          "ir_light": "Infrared",
+          "event_intelligence": "Smart (on event)",
+          "close": "Off",
+          "auto": "Auto",
+          "manual": "Manual",
+          "day": "Day",
+          "night": "Night",
+          "schedule": "Schedule",
+          "event_trigger": "Event trigger",
+          "open": "On",
+          "high": "High",
+          "medium": "Medium",
+          "low": "Low",
+          "normally_on": "Always on"
+        }
+      },
+      "wdr_mode": {
+        "name": "WDR",
+        "state": {
+          "color_vu_white_light": "White light",
+          "ir_light": "Infrared",
+          "event_intelligence": "Smart (on event)",
+          "close": "Off",
+          "auto": "Auto",
+          "manual": "Manual",
+          "day": "Day",
+          "night": "Night",
+          "schedule": "Schedule",
+          "event_trigger": "Event trigger",
+          "open": "On",
+          "high": "High",
+          "medium": "Medium",
+          "low": "Low",
+          "normally_on": "Always on"
+        }
+      },
+      "wdr_mode_channel": {
+        "name": "WDR (lens {channel})",
+        "state": {
+          "color_vu_white_light": "White light",
+          "ir_light": "Infrared",
+          "event_intelligence": "Smart (on event)",
+          "close": "Off",
+          "auto": "Auto",
+          "manual": "Manual",
+          "day": "Day",
+          "night": "Night",
+          "schedule": "Schedule",
+          "event_trigger": "Event trigger",
+          "open": "On",
+          "high": "High",
+          "medium": "Medium",
+          "low": "Low",
+          "normally_on": "Always on"
+        }
+      },
+      "strobe_frequency": {
+        "name": "Strobe frequency",
+        "state": {
+          "color_vu_white_light": "White light",
+          "ir_light": "Infrared",
+          "event_intelligence": "Smart (on event)",
+          "close": "Off",
+          "auto": "Auto",
+          "manual": "Manual",
+          "day": "Day",
+          "night": "Night",
+          "schedule": "Schedule",
+          "event_trigger": "Event trigger",
+          "open": "On",
+          "high": "High",
+          "medium": "Medium",
+          "low": "Low",
+          "normally_on": "Always on"
+        }
+      },
+      "strobe_frequency_channel": {
+        "name": "Strobe frequency (lens {channel})",
+        "state": {
+          "color_vu_white_light": "White light",
+          "ir_light": "Infrared",
+          "event_intelligence": "Smart (on event)",
+          "close": "Off",
+          "auto": "Auto",
+          "manual": "Manual",
+          "day": "Day",
+          "night": "Night",
+          "schedule": "Schedule",
+          "event_trigger": "Event trigger",
+          "open": "On",
+          "high": "High",
+          "medium": "Medium",
+          "low": "Low",
+          "normally_on": "Always on"
+        }
+      },
+      "siren_sound": {
+        "name": "Siren sound"
+      },
+      "siren_sound_channel": {
+        "name": "Siren sound (lens {channel})"
+      }
+    },
+    "number": {
+      "white_light_brightness": {
+        "name": "White light brightness"
+      },
+      "white_light_brightness_channel": {
+        "name": "White light brightness (lens {channel})"
+      },
+      "ir_light_brightness": {
+        "name": "IR brightness"
+      },
+      "ir_light_brightness_channel": {
+        "name": "IR brightness (lens {channel})"
+      },
+      "white_light_brightness_limit": {
+        "name": "White light brightness limit"
+      },
+      "white_light_brightness_limit_channel": {
+        "name": "White light brightness limit (lens {channel})"
+      },
+      "day_night_sensitivity": {
+        "name": "Day/night sensitivity"
+      },
+      "day_night_sensitivity_channel": {
+        "name": "Day/night sensitivity (lens {channel})"
+      },
+      "day_night_delay": {
+        "name": "Day/night switch delay"
+      },
+      "day_night_delay_channel": {
+        "name": "Day/night switch delay (lens {channel})"
+      },
+      "strobe_duration": {
+        "name": "Strobe duration"
+      },
+      "strobe_duration_channel": {
+        "name": "Strobe duration (lens {channel})"
+      },
+      "siren_volume": {
+        "name": "Siren volume"
+      },
+      "siren_volume_channel": {
+        "name": "Siren volume (lens {channel})"
+      },
+      "siren_repeats": {
+        "name": "Siren repeats"
+      },
+      "siren_repeats_channel": {
+        "name": "Siren repeats (lens {channel})"
+      }
+    },
+    "binary_sensor": {
+      "motion": {
+        "name": "Motion"
+      },
+      "motion_channel": {
+        "name": "Motion (lens {channel})"
+      },
+      "human": {
+        "name": "Person"
+      },
+      "human_channel": {
+        "name": "Person (lens {channel})"
+      },
+      "vehicle": {
+        "name": "Vehicle"
+      },
+      "vehicle_channel": {
+        "name": "Vehicle (lens {channel})"
+      },
+      "intrusion": {
+        "name": "Intrusion"
+      },
+      "intrusion_channel": {
+        "name": "Intrusion (lens {channel})"
+      },
+      "line_crossing": {
+        "name": "Line crossing"
+      },
+      "line_crossing_channel": {
+        "name": "Line crossing (lens {channel})"
+      },
+      "region_entrance": {
+        "name": "Region entrance"
+      },
+      "region_entrance_channel": {
+        "name": "Region entrance (lens {channel})"
+      },
+      "region_exiting": {
+        "name": "Region exiting"
+      },
+      "region_exiting_channel": {
+        "name": "Region exiting (lens {channel})"
+      },
+      "tamper": {
+        "name": "Tampering"
+      },
+      "tamper_channel": {
+        "name": "Tampering (lens {channel})"
+      },
+      "scene_change": {
+        "name": "Scene change"
+      },
+      "scene_change_channel": {
+        "name": "Scene change (lens {channel})"
+      },
+      "defocus": {
+        "name": "Defocus"
+      },
+      "defocus_channel": {
+        "name": "Defocus (lens {channel})"
+      },
+      "audio_exception": {
+        "name": "Audio exception"
+      },
+      "audio_exception_channel": {
+        "name": "Audio exception (lens {channel})"
+      },
+      "pir": {
+        "name": "PIR"
+      },
+      "pir_channel": {
+        "name": "PIR (lens {channel})"
+      },
+      "event_stream": {
+        "name": "Event connection"
+      },
+      "event_stream_channel": {
+        "name": "Event connection (lens {channel})"
+      },
+      "alarm_input": {
+        "name": "Alarm input {port}"
+      }
+    },
+    "sensor": {
+      "cpu": {
+        "name": "CPU usage"
+      },
+      "cpu_channel": {
+        "name": "CPU usage (lens {channel})"
+      },
+      "memory": {
+        "name": "Memory usage"
+      },
+      "memory_channel": {
+        "name": "Memory usage (lens {channel})"
+      },
+      "boot_time": {
+        "name": "Last boot"
+      },
+      "boot_time_channel": {
+        "name": "Last boot (lens {channel})"
+      },
+      "storage_status": {
+        "name": "SD card status"
+      },
+      "storage_status_channel": {
+        "name": "SD card status (lens {channel})"
+      },
+      "storage_free": {
+        "name": "SD card free space"
+      },
+      "storage_free_channel": {
+        "name": "SD card free space (lens {channel})"
+      },
+      "storage_capacity": {
+        "name": "SD card capacity"
+      },
+      "storage_capacity_channel": {
+        "name": "SD card capacity (lens {channel})"
+      }
+    },
+    "button": {
+      "reboot": {
+        "name": "Reboot"
+      },
+      "reboot_channel": {
+        "name": "Reboot (lens {channel})"
+      },
+      "enable_event_linkage": {
+        "name": "Enable event notifications"
+      },
+      "enable_event_linkage_channel": {
+        "name": "Enable event notifications (lens {channel})"
+      },
+      "siren_test": {
+        "name": "Play siren"
+      },
+      "siren_test_channel": {
+        "name": "Play siren (lens {channel})"
+      },
+      "wiper": {
+        "name": "Wiper"
+      },
+      "wiper_channel": {
+        "name": "Wiper (lens {channel})"
+      },
+      "focus": {
+        "name": "Auto focus"
+      },
+      "focus_channel": {
+        "name": "Auto focus (lens {channel})"
+      }
+    },
+    "camera": {
+      "main_stream": {
+        "name": "Main stream"
+      },
+      "main_stream_channel": {
+        "name": "Main stream (lens {channel})"
+      },
+      "sub_stream": {
+        "name": "Sub stream"
+      },
+      "sub_stream_channel": {
+        "name": "Sub stream (lens {channel})"
+      }
+    }
+  },
+  "issues": {
+    "missing_linkage": {
+      "title": "{name}: some events are not sent to Home Assistant",
+      "description": "These camera events do not have \"Notify Surveillance Center\" enabled, so their sensors will never turn on: {events}.\n\nPress the \"Enable event notifications\" button on the device page, or enable it in the camera's web interface under Event → Linkage Action."
+    }
+  },
+  "exceptions": {
+    "unknown_device": {
+      "message": "This device is not an Annke camera."
+    },
+    "no_ptz": {
+      "message": "{name} does not support PTZ on this channel."
+    },
+    "forbidden": {
+      "message": "{name}: the camera account is not allowed to change settings (HTTP 403). In the camera, give this user the \"Remote: Parameters Settings\" permission, or use an administrator account."
+    }
+  },
+  "services": {
+    "ptz_move": {
+      "name": "PTZ move",
+      "description": "Pan, tilt or zoom the camera for a short time.",
+      "fields": {
+        "device_id": {
+          "name": "Camera",
+          "description": "Camera"
+        },
+        "channel": {
+          "name": "Channel",
+          "description": "Channel"
+        },
+        "pan": {
+          "name": "Pan speed",
+          "description": "-100 to 100; negative values move the other way."
+        },
+        "tilt": {
+          "name": "Tilt speed",
+          "description": "-100 to 100; negative values move the other way."
+        },
+        "zoom": {
+          "name": "Zoom speed",
+          "description": "-100 to 100; negative values move the other way."
+        },
+        "duration": {
+          "name": "Duration (s)",
+          "description": "Duration (s)"
+        }
+      }
+    },
+    "goto_preset": {
+      "name": "Go to preset",
+      "description": "Move the camera to a saved position.",
+      "fields": {
+        "device_id": {
+          "name": "Camera",
+          "description": "Camera"
+        },
+        "channel": {
+          "name": "Channel",
+          "description": "Channel"
+        },
+        "preset": {
+          "name": "Preset number",
+          "description": "Preset number"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "domain": "annke",
+  "name": "Annke",
+  "codeowners": ["@lespod"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/lespod/ha-annke",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "issue_tracker": "https://github.com/lespod/ha-annke/issues",
+  "loggers": ["custom_components.annke"],
+  "requirements": [],
+  "version": "0.1.0"
+}
